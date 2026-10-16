@@ -1,8 +1,11 @@
 package br.com.backend.infoa.senai.gabrielfr.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.backend.infoa.senai.gabrielfr.Models.Empreendedor;
 import br.com.backend.infoa.senai.gabrielfr.Repositories.EmpreendedorRepository;
 
 @Service
@@ -24,4 +27,11 @@ public class EmpreendedorService {
     //Métodos de contagem(Equivalente a uma consulta do tipo: select count(*) from empreendedor):
     //integer muito grande = long
 
+    public List<Empreendedor> listar() {
+        return empreendedorRepository.findAll();
+    }
+
+    public Empreendedor buscarPorId(Integer id) {
+        return empreendedorRepository.findById(id).get();
+    }
 }
